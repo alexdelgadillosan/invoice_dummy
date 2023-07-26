@@ -1,0 +1,151 @@
+<div class="col-md-10">
+  <!-- First Row -->
+  <div class="row align-items-center">
+    <div class="col-md-4">
+      <img
+        _ngcontent-sqj-c1=""
+        src="https://d3r8o2i8390sjv.cloudfront.net/application/production/company-logos/837036afcafdc85db3233b388f"
+        style="margin: 0 auto; max-width: 100%; max-height: 86px"
+      />
+    </div>
+
+    <div id="factura-company" class="col-md-4 text-center">
+      <label class="x-component x-box-item x-component-default"
+        >LS-DA S.A.S</label
+      >
+      <label class="x-component x-box-item x-component-default"
+        >NIT: 901658092</label
+      >
+      <label class="x-component x-box-item x-component-default"
+        >jjimenez@ls-da.com</label
+      >
+    </div>
+    <div class="col-md-4 text-center">
+      <label for="">No.</label>
+    </div>
+  </div>
+
+  <!-- Second Row -->
+  <div class="row mt-3">
+    <div class="col-md-3">
+      <label for="label1">Label 1</label>
+      <select class="form-control" id="label1">
+        <!-- Dropdown options for label1 -->
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="label2">Label 2</label>
+      <input type="text" class="form-control" id="label2" />
+    </div>
+    <div class="col-md-3">
+      <label for="label3">Label 3</label>
+      <input type="text" class="form-control" id="label3" />
+    </div>
+    <div class="col-md-3">
+      <label for="label4">Label 4</label>
+      <select class="form-control" id="label4">
+        <!-- Dropdown options for label4 -->
+      </select>
+    </div>
+  </div>
+
+  <!-- Third Row -->
+  <div class="row mt-3">
+    <div class="col-md-3">
+      <label for="label5">Label 5</label>
+      <select class="form-control" id="label5">
+        <!-- Dropdown options for label5 -->
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="label6">Label 6</label>
+      <input type="date" class="form-control" id="label6" />
+    </div>
+    <div class="col-md-3">
+      <label for="label7">Label 7</label>
+      <select class="form-control" id="label7">
+        <!-- Dropdown options for label7 -->
+      </select>
+    </div>
+    <div class="col-md-3">
+      <label for="label8">Label 8</label>
+      <input type="date" class="form-control" id="label8" />
+    </div>
+  </div>
+
+  <div class="row mt-3" *ngFor="let row of rows; let rowIndex = index">
+    <div class="col-md-1" style="width: 100px">
+      <label for="">Label</label>
+      <select class="form-control" [(ngModel)]="row.column1">
+        <!-- Dropdown options for column1 -->
+      </select>
+    </div>
+    <div class="col-md-2" style="width: 150px">
+      <label for="">Label</label>
+      <input type="text" class="form-control" [(ngModel)]="row.column2" />
+    </div>
+    <div class="col-md-2" style="width: 150px">
+      <label for="">Label</label>
+      <input type="text" class="form-control" [(ngModel)]="row.column3" />
+    </div>
+    <div class="col-md-2" style="width: 150px">
+      <label for="">Label</label>
+      <input type="text" class="form-control" [(ngModel)]="row.column4" />
+    </div>
+    <div class="col-md-1" style="width: 100px">
+      <label for="">Label</label>
+      <select class="form-control" [(ngModel)]="row.column5">
+        <!-- Dropdown options for column5 -->
+      </select>
+    </div>
+    <div class="col-md-2" style="width: 150px">
+      <label for="">Label</label>
+      <input type="text" class="form-control" [(ngModel)]="row.column6" />
+    </div>
+    <div class="col-md-1" style="width: 100px">
+      <label for="">Label</label>
+      <select class="form-control" [(ngModel)]="row.column7">
+        <!-- Dropdown options for column7 -->
+      </select>
+    </div>
+    <div class="col-md-1" style="width: 50px">
+      <label for="">Label</label>
+      <button class="btn btn-danger btn-sm" (click)="deleteRow(rowIndex)">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Add button to add new rows -->
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <button class="btn btn-primary" (click)="addRow()">Add</button>
+    </div>
+  </div>
+
+  <!-- Fourth Row -->
+
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <label for="">Legend</label>
+      <input type="checkbox" />
+    </div>
+
+    <div class="col-md-5 text-right">
+      <label for="subtotal">Subtotal</label>
+      <br />
+      <label for="discount">Discount</label>
+      <br />
+      <hr />
+      <label for="total">Total</label>
+    </div>
+    <div class="col-md-1 text-right">
+      <label id="subtotal">0</label>
+      <br />
+      <label id="discount">0</label>
+      <br />
+      <hr />
+      <label id="total">0</label>
+    </div>
+  </div>
+</div>

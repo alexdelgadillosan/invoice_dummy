@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-factura-venta',
@@ -6,5 +7,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./factura-venta.component.css']
 })
 export class FacturaVentaComponent {
-  @Input() selectedOption: string = '';
+  constructor(private router: Router){
+
+  }
+
+  navigateToNewPage(): void {
+    // Replace 'new-page' with the route path of the new page you want to navigate to
+    this.router.navigate(['factura-venta-nuevo']);
+  }
 }

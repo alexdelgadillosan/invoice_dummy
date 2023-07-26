@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+// app.component.ts
+
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'invoice_dummy';
+
+  constructor() {}
+
+
+ 
 }

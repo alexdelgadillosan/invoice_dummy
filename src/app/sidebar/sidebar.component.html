@@ -1,4 +1,4 @@
-<div class="flex-shrink-0 p-3" style="width: 180px">
+<div class="" style="width: 180px">
   <a
     href="/"
     class="d-flex align-items-center pb-3 mb-3 link-body-emphasis text-decoration-none border-bottom"
@@ -16,14 +16,18 @@
         data-bs-target="#home-collapse"
         aria-expanded="true"
       >
-        Ingresos
+        <i class="fas fa-caret-down ms-2"></i>
+        <span class="ms-2">Ingresos</span>
       </button>
+
       <div class="collapse show" id="home-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li>
             <a
               href="#"
-              class="link-body-emphasis d-inline-flex text-decoration-none rounded"
+              class="link-body-emphasis d-inline-flex text-decoration-none rounded nav-link ms-4"
+              routerLink="factura-tabla"
+              routerLinkActive="active"
               >Facturas de Venta</a
             >
           </li>
@@ -37,15 +41,17 @@
         data-bs-target="#dashboard-collapse"
         aria-expanded="false"
       >
-        Contactos
+        <i class="fas fa-caret-down ms-2"></i>
+        <span class="ms-2">Contactos</span>
       </button>
       <div class="collapse" id="dashboard-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
           <li>
             <a
               href="#"
-              class="link-body-emphasis d-inline-flex text-decoration-none rounded"
-              >Clientes</a
+              class="link-body-emphasis d-inline-flex text-decoration-none rounded ms-4"
+            >
+              Clientes</a
             >
           </li>
         </ul>

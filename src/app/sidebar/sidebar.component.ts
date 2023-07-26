@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+// sidebar.component.ts
+
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,31 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-  private collapsedStates: { [key: number]: boolean } = {};
-  selectedOption: string = '';
 
-  isCollapsed(index: number): boolean {
-    return this.collapsedStates[index] || false;
+  constructor() {
   }
 
-  toggleCollapse(index: number): void {
-    this.collapsedStates[index] = !this.isCollapsed(index);
-
-    // Set the selected option based on the index (you can modify this logic)
-    switch (index) {
-      case 1:
-        this.selectedOption = 'Option 1 content';
-        break;
-      case 2:
-        this.selectedOption = 'Option 2 content';
-        break;
-      case 3:
-        this.selectedOption = 'Option 3 content';
-        break;
-      // Add more cases for other options if needed
-      default:
-        this.selectedOption = '';
-        break;
-    }
-  }
+  
 }
