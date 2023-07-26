@@ -8,6 +8,7 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { FacturaVentaComponent } from './factura-venta/factura-venta.component';
 import { FacturaVentaNuevoComponent } from './factura-venta/factura-venta-nuevo/factura-venta-nuevo.component';
 import { FormsModule } from '@angular/forms';
+import { ClientesComponent } from './clientes/clientes.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     SidebarComponent,
     TopbarComponent,
     FacturaVentaComponent,
-    FacturaVentaNuevoComponent
+    FacturaVentaNuevoComponent,
+    ClientesComponent
   ],
   imports: [
     BrowserModule,

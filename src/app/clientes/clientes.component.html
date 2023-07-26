@@ -1,0 +1,67 @@
+<div class="col-md-12">
+  <!-- First Row -->
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <h1>Main Title</h1>
+    </div>
+  </div>
+
+  <!-- Second Row - Table -->
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Identificacion</th>
+            <th>Telefono</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let row of rows; let rowIndex = index">
+            <tr>
+              <td>
+                <input [(ngModel)]="row.nombre" [readonly]="!row.isEditMode" />
+              </td>
+              <td>
+                <input
+                  [(ngModel)]="row.identificacion"
+                  [readonly]="!row.isEditMode"
+                />
+              </td>
+              <td>
+                <input
+                  [(ngModel)]="row.telefono"
+                  [readonly]="!row.isEditMode"
+                />
+              </td>
+              <td>
+                <ng-container *ngIf="!row.isEditMode; else editModeButtons">
+                  <button class="btn btn-danger" (click)="deleteRow(rowIndex)">
+                    Delete
+                  </button>
+                  <button class="btn btn-primary" (click)="editRow(rowIndex)">
+                    Edit
+                  </button>
+                </ng-container>
+                <ng-template #editModeButtons>
+                  <button class="btn btn-success" (click)="saveRow(rowIndex)">
+                    Save
+                  </button>
+                </ng-template>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Third Row - Add button -->
+  <div class="row mt-3">
+    <div class="col-md-12">
+      <button class="btn btn-primary" (click)="addRow()">Add</button>
+    </div>
+  </div>
+</div>
