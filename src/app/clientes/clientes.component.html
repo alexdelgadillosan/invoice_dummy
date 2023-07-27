@@ -2,7 +2,7 @@
   <!-- First Row -->
   <div class="row mt-3">
     <div class="col-md-12">
-      <h1>Main Title</h1>
+      <h1>Cliente</h1>
     </div>
   </div>
 
@@ -39,15 +39,15 @@
               <td>
                 <ng-container *ngIf="!row.isEditMode; else editModeButtons">
                   <button class="btn btn-danger" (click)="deleteRow(rowIndex)">
-                    Delete
+                    <i class="fa-solid fa-trash"></i>
                   </button>
                   <button class="btn btn-primary" (click)="editRow(rowIndex)">
-                    Edit
+                    <i class="fa-solid fa-pen-to-square"></i>
                   </button>
                 </ng-container>
                 <ng-template #editModeButtons>
                   <button class="btn btn-success" (click)="saveRow(rowIndex)">
-                    Save
+                    Guardar
                   </button>
                 </ng-template>
               </td>
@@ -61,7 +61,7 @@
   <!-- Third Row - Add button -->
   <div class="row mt-3">
     <div class="col-md-12">
-      <button class="btn btn-primary" (click)="addRow()">Add</button>
+      <button class="btn btn-success" (click)="addRow()">Añadir</button>
     </div>
   </div>
 </div>

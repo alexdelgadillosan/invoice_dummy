@@ -17,18 +17,27 @@ export class ClientesComponent {
 
   constructor() {
     // Add an initial row to the table
-    this.addRow();
+    this.addRowWithData('John Doe', '123456789', '555-1234');
+    this.addRowWithData('Jane Smith', '987654321', '555-5678');
   }
 
   deleteRow(rowIndex: number): void {
     this.rows.splice(rowIndex, 1);
   }
-
+  addRowWithData(nombre: string, identificacion: string, telefono: string): void {
+    const newRow: RowData = {
+      nombre: nombre,
+      identificacion: identificacion,
+      telefono: telefono,
+      isEditMode: false
+    };
+    this.rows.push(newRow);
+  }
   addRow(): void {
     const newRow: RowData = {
-      nombre: 'New Name',
-      identificacion: 'New ID',
-      telefono: 'New Phone',
+      nombre: '',
+      identificacion: '',
+      telefono: '',
       isEditMode: false
     };
     this.rows.push(newRow);

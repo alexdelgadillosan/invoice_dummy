@@ -1,57 +1,60 @@
 <div class="container">
-  <h2>Title</h2>
+  <h2>Facturas de Venta</h2>
   <table class="table table-bordered">
     <thead>
       <!-- Add "Create New" button row -->
       <tr>
-        <th colspan="10"></th>
+        <th colspan="9"></th>
         <th>
           <button
             type="button"
             class="btn btn-primary"
-            routerLink="/factura-venta-nuevo"
+            (click)="navigateToNewPage()"
           >
-            Create New
+            Crear Nuevo
           </button>
         </th>
       </tr>
       <!-- Table header row -->
       <tr>
-        <th>Column 1</th>
-        <th>Column 2</th>
-        <th>Column 3</th>
-        <th>Column 4</th>
-        <th>Column 5</th>
-        <th>Column 6</th>
-        <th>Column 7</th>
-        <th>Column 8</th>
-        <th>Column 9</th>
-        <th>Column 10</th>
-        <th>Actions</th>
+        <th>Numero</th>
+        <th>Cliente</th>
+        <th>Creacion</th>
+        <th>Vencimiento</th>
+        <th>Total</th>
+        <th>Cobrado</th>
+        <th>Por Cobrar</th>
+        <th>Estado DIAN</th>
+        <th>Estado</th>
+        <th>Acciones</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Data 1</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
-        <td>Data 6</td>
-        <td>Data 7</td>
-        <td>Data 8</td>
-        <td>Data 9</td>
-        <td>Data 10</td>
+      <tr *ngFor="let row of rows">
+        <td>{{ row.numero }}</td>
+        <td>{{ row.cliente }}</td>
+        <td>{{ row.creacion }}</td>
+        <td>{{ row.vencimiento }}</td>
+        <td>{{ row.total }}</td>
+        <td>{{ row.cobrado }}</td>
+        <td>{{ row.porCobrar }}</td>
+        <td>{{ row.estadoDian }}</td>
+        <td>{{ row.estado }}</td>
         <td>
           <!-- Add Bootstrap buttons here with btn-group class -->
           <div class="btn-group">
-            <button type="button" class="btn btn-primary">Button 1</button>
-            <button type="button" class="btn btn-secondary">Button 2</button>
-            <button type="button" class="btn btn-success">Button 3</button>
+            <button type="button" class="btn btn-primary">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button type="button" class="btn btn-success">
+              <i class="fa-solid fa-download"></i>
+            </button>
+            <button type="button" class="btn btn-danger">
+              <i class="fa-solid fa-trash"></i>
+            </button>
           </div>
         </td>
       </tr>
-      <!-- Add more rows as needed -->
     </tbody>
   </table>
 </div>
