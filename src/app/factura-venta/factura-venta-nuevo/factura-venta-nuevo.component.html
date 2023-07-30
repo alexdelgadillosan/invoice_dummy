@@ -83,49 +83,68 @@
     <div class="col-md-2">
       <label for="">Item</label>
       <select class="form-control" [(ngModel)]="row.column1">
-        <option value="">Activacion NIT</option>
-        <option value="">Volumen Documento Electronico</option>
-        <option value="">Volumen documentos electronicos</option>
-        <option value="">TEPRE</option>
+        <option *ngFor="let item of items" [value]="item.itemName">
+          {{ item.itemName }}
+        </option>
       </select>
     </div>
     <div class="col-md-2">
       <label for="">Referencia</label>
-      <input type="text" class="form-control" [(ngModel)]="row.column2" />
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="row.column2"
+        [value]="getItemReference(row.column1)"
+      />
     </div>
-    <div class="col-md-2">
-      <label for="">Precio Unitario</label>
-      <input type="text" class="form-control" [(ngModel)]="row.column3" />
+    <div class="col-md-1">
+      <label for="">Precio</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="row.column3"
+        [value]="getItemPrice(row.column1)"
+      />
     </div>
     <div class="col-md-1">
       <label for="">Impuesto</label>
-      <select class="form-control" [(ngModel)]="row.column4">
-        <option value="">0%</option>
-        <option value="">5%</option>
-        <option value="">16%</option>
-      </select>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="row.column4"
+        [value]="getItemTax(row.column1)"
+      />
     </div>
     <div class="col-md-2">
       <label for="">Descripcion</label>
-      <input type="text" class="form-control" [(ngModel)]="row.column5" />
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="row.column5"
+        [value]="getItemDescription(row.column1)"
+      />
+    </div>
+    <div class="col-md-1">
+      <label for="">Descuento</label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="row.column6"
+        (ngModelChange)="calculateRowTotal(rowIndex)"
+      />
     </div>
     <div class="col-md-1">
       <label for="">Cantidad</label>
       <input
         type="number"
         class="form-control"
-        [(ngModel)]="row.column6"
-        (ngModelChange)="onColumnChange()"
+        [(ngModel)]="row.column7"
+        (ngModelChange)="calculateRowTotal(rowIndex)"
       />
     </div>
     <div class="col-md-1">
       <label for="">Total</label>
-      <input
-        type="text"
-        class="form-control"
-        [(ngModel)]="row.column7"
-        (ngModelChange)="onColumnChange()"
-      />
+      <input type="text" class="form-control" [(ngModel)]="row.column8" />
     </div>
     <div class="col-md-1" style="width: 50px">
       <label for="">Acciones</label>

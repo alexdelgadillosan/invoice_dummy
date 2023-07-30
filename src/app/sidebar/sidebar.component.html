@@ -17,7 +17,7 @@
         aria-expanded="true"
       >
         <i class="fas fa-caret-down ms-2"></i>
-        <span class="ms-2">Ingresos</span>
+        <span class="ms-2">Emision Documentos</span>
       </button>
 
       <div class="collapse show" id="home-collapse">
@@ -28,12 +28,49 @@
               class="link-body-emphasis d-inline-flex text-decoration-none rounded nav-link ms-4"
               routerLink="factura-tabla"
               routerLinkActive="active"
-              >Facturas de Venta</a
+              >Factura de Venta</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="link-body-emphasis d-inline-flex text-decoration-none rounded nav-link ms-4"
+              routerLink="factura-tabla"
+              routerLinkActive="active"
+              >Nota credito</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="link-body-emphasis d-inline-flex text-decoration-none rounded nav-link ms-4"
+              routerLink="factura-tabla"
+              routerLinkActive="active"
+              >Nota debito</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="link-body-emphasis d-inline-flex text-decoration-none rounded nav-link ms-4"
+              routerLink="factura-tabla"
+              routerLinkActive="active"
+              >Documento Soporte</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="link-body-emphasis d-inline-flex text-decoration-none rounded nav-link ms-4"
+              routerLink="factura-tabla"
+              routerLinkActive="active"
+              >Nota de Ajuste</a
             >
           </li>
         </ul>
       </div>
     </li>
+
     <li class="mb-1">
       <button
         class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
@@ -42,7 +79,7 @@
         aria-expanded="false"
       >
         <i class="fas fa-caret-down ms-2"></i>
-        <span class="ms-2">Contactos</span>
+        <span class="ms-2" id="contactB">Contactos </span>
       </button>
       <div class="collapse" id="dashboard-collapse">
         <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
@@ -53,6 +90,40 @@
               routerLink="clientes"
             >
               Clientes</a
+            >
+          </li>
+          <li>
+            <a
+              href="#"
+              class="link-body-emphasis d-inline-flex text-decoration-none rounded ms-4"
+              routerLink="clientes"
+            >
+              Proveedores</a
+            >
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="mb-1">
+      <button
+        class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+        data-bs-toggle="collapse"
+        data-bs-target="#products-collapse"
+        aria-expanded="false"
+      >
+        <i class="fas fa-caret-down ms-2"></i>
+        <span class="ms-2">Productos y Servicios</span>
+      </button>
+      <div class="collapse" id="products-collapse">
+        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+          <li>
+            <a
+              href="#"
+              class="link-body-emphasis d-inline-flex text-decoration-none rounded ms-4"
+              routerLink="clientes"
+            >
+              Productos/Servicios</a
             >
           </li>
         </ul>
