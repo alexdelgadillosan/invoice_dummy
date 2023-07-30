@@ -112,11 +112,9 @@
         type="text"
         class="form-control"
         [(ngModel)]="row.column4"
-        (input)="calculateRowTotal(rowIndex)"
         [value]="getItemTax(row.column1)"
       />
     </div>
-
     <div class="col-md-2">
       <label for="">Descripcion</label>
       <input
@@ -178,14 +176,13 @@
       <br />
       <label for="total">Cargo</label>
       <br />
-      <hr />
-      <label for="total">Total</label>
-      <br />
       <label for="total">Total IVA</label>
       <br />
       <label for="total">Total INC</label>
       <br />
       <label for="total">Bolsa</label>
+      <hr />
+      <label for="total">Total</label>
     </div>
     <div class="col-md-1 text-right">
       <label id="subtotal">{{ subtotal }}</label>
@@ -193,15 +190,15 @@
       <label id="discount">{{ discount }}</label>
       <br />
       <label id="charge">0</label>
-      <br />
-      <hr />
-      <label id="total">{{ total }}</label>
+
       <br />
       <label id="totalIVA">{{ iva }}</label>
       <br />
       <label id="totalINC">{{ inc }}</label>
       <br />
       <label id="bolsa">{{ inc }}</label>
+      <hr />
+      <label id="total">{{ total }}</label>
     </div>
   </div>
   <div class="row mt-3 equal-height-row">

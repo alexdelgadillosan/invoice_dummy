@@ -53,34 +53,30 @@ export class FacturaVentaNuevoComponent {
   }
 
   calculateTotals(): void {
+    console.log('Starting calculateTotals()');
     this.subtotal = this.rows.reduce((sum, row) => {
       const price = parseFloat(row.column3) || 0;
       const quantity = parseFloat(row.column7) || 0;
       const discount = parseFloat(row.column6) || 0;
       const total = (price * quantity - discount).toFixed(2);
       row.column8 = total;
+      console.log('Calculating subtotal:', sum + parseFloat(total));
       return sum + parseFloat(total) || 0;
     }, 0);
-
+  
     this.discount = this.rows.reduce((sum, row) => {
       return sum + parseFloat(row.column6) || 0;
     }, 0);
-
+  
+    // Add the tax value from each row to the total value
     this.iva = this.rows.reduce((sum, row) => {
-      return sum + parseFloat(row.column4) || 0;
-    }, 0);
-
-    this.total = this.subtotal + this.iva;
-    console.log('Calculating IVA');
-    this.iva = this.rows.reduce((sum, row) => {
-      const tax = parseFloat(row.column4) || 0;
-      console.log('Tax for row:', tax);
+      const tax = parseFloat(this.getItemTax(row.column1)) || 0;
       return sum + tax;
     }, 0);
   
-    console.log('IVA:', this.iva);
+    console.log('Tax:', this.iva);
     this.total = this.subtotal + this.iva;
-    
+    console.log('Total:', this.total);
   }
 
   addRow(): void {
@@ -152,7 +148,7 @@ export class FacturaVentaNuevoComponent {
 
     // Calculate the total and set it in the corresponding row
     const total = (price * quantity - discount).toFixed(2);
-    row.column3 = item ? item.price.toString() : '0';
+    row.column3 = item ? item.price.toString() : 0;
     row.column8 = total;
 
     // Recalculate the totals
