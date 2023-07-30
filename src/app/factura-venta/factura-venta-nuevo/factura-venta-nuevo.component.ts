@@ -1,3 +1,4 @@
+// factura-venta-nuevo.component.ts
 import { Component } from '@angular/core';
 import { Item } from 'src/app/models/item.interface';
 
@@ -8,15 +9,18 @@ import { Item } from 'src/app/models/item.interface';
 })
 export class FacturaVentaNuevoComponent {
   rows: any[] = [];
-  items: Item[] = []
+  items: Item[] = [];
 
-  // Define the options for dropdowns (you can populate this from your data source)
-  
+  subtotal: number = 0;
   total: number = 0;
+  iva: number = 0;
+  inc: number = 0;
+  discount: number = 0;
 
   constructor() {
     // Add a new row with default values when the component is created
     this.addRow();
+
     this.items.push({
       itemName: 'Activacion NIT',
       reference: 'Reference 1',
@@ -24,7 +28,7 @@ export class FacturaVentaNuevoComponent {
       tax: 100,
       discount: 0,
       charge: 0,
-      description: "desc1"
+      description: 'desc1'
     });
 
     this.items.push({
@@ -34,7 +38,7 @@ export class FacturaVentaNuevoComponent {
       tax: 200,
       discount: 0,
       charge: 0,
-      description: "desc2"
+      description: 'desc2'
     });
 
     this.items.push({
@@ -44,42 +48,62 @@ export class FacturaVentaNuevoComponent {
       tax: 300,
       discount: 0,
       charge: 0,
-      description: "desc3"
+      description: 'desc3'
     });
+  }
 
+  calculateTotals(): void {
+    this.subtotal = this.rows.reduce((sum, row) => {
+      const price = parseFloat(row.column3) || 0;
+      const quantity = parseFloat(row.column7) || 0;
+      const discount = parseFloat(row.column6) || 0;
+      const total = (price * quantity - discount).toFixed(2);
+      row.column8 = total;
+      return sum + parseFloat(total) || 0;
+    }, 0);
+
+    this.discount = this.rows.reduce((sum, row) => {
+      return sum + parseFloat(row.column6) || 0;
+    }, 0);
+
+    this.iva = this.rows.reduce((sum, row) => {
+      return sum + parseFloat(row.column4) || 0;
+    }, 0);
+
+    this.total = this.subtotal + this.iva;
+    console.log('Calculating IVA');
+    this.iva = this.rows.reduce((sum, row) => {
+      const tax = parseFloat(row.column4) || 0;
+      console.log('Tax for row:', tax);
+      return sum + tax;
+    }, 0);
+  
+    console.log('IVA:', this.iva);
+    this.total = this.subtotal + this.iva;
+    
   }
 
   addRow(): void {
     // Add a new row with default values
     this.rows.push({
       column1: '',
-      column2: '', //reference
-      column3: '0', //price
-      column4: 0, //tax
-      column5: '',//desc
-      column6: '0',//dicscount
-      column7: 1, // qty
-      column8: '0',// total
+      column2: '',
+      column3: '0',
+      column4: 0,
+      column5: '',
+      column6: '0',
+      column7: 0,
+      column8: '0',
     });
-
-    // Recalculate the total
-    this.calculateTotal();
+    this.calculateTotals();
   }
 
   deleteRow(index: number): void {
     // Delete the row at the specified index
     this.rows.splice(index, 1);
 
-    // Recalculate the total
-    this.calculateTotal();
-  }
-
-  // Calculate the total value from column7 of all rows
-  calculateTotal(): void {
-    this.total = this.rows.reduce((sum, row) => {
-      const column8Value = parseFloat(row.column8) || 0; // Use column8 for calculation
-      return sum + column8Value;
-    }, 0);
+    // Recalculate the totals
+    this.calculateTotals();
   }
 
   onColumnChange(): void {
@@ -87,7 +111,11 @@ export class FacturaVentaNuevoComponent {
     this.rows.forEach((row, index) => {
       this.calculateRowTotal(index);
     });
+
+    // Recalculate the totals
+    this.calculateTotals();
   }
+  
 
   getItemReference(itemName: string): string {
     // Find the item with the given itemName and return its reference
@@ -112,13 +140,22 @@ export class FacturaVentaNuevoComponent {
   }
   calculateRowTotal(rowIndex: number): void {
     const row = this.rows[rowIndex];
-    const price = parseFloat(row.column3) || 0;
+    const itemName = row.column1; // Get the selected item name
+
+    // Find the item with the given itemName
+    const item = this.items.find((item) => item.itemName === itemName);
+
+    // If the item is found, extract the price, quantity, and discount
+    const price = item ? item.price : 0;
     const quantity = parseFloat(row.column7) || 0;
     const discount = parseFloat(row.column6) || 0;
+
+    // Calculate the total and set it in the corresponding row
     const total = (price * quantity - discount).toFixed(2);
-    // Set the calculated total in the corresponding row
-    this.rows[rowIndex].column8 = total;
-    // Recalculate the total for all rows
-    this.calculateTotal();
+    row.column3 = item ? item.price.toString() : '0';
+    row.column8 = total;
+
+    // Recalculate the totals
+    this.calculateTotals();
   }
 }
