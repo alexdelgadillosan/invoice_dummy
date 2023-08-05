@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 interface RowData {
   nombre: string;
@@ -15,7 +16,7 @@ interface RowData {
 export class ClientesComponent {
   rows: RowData[] = [];
 
-  constructor() {
+  constructor(private router: Router) {
     // Add an initial row to the table
     this.addRowWithData('John Doe', '123456789', '555-1234');
     this.addRowWithData('Jane Smith', '987654321', '555-5678');
@@ -49,5 +50,9 @@ export class ClientesComponent {
 
   saveRow(rowIndex: number): void {
     this.rows[rowIndex].isEditMode = false;
+  }
+
+  addClient(){
+    this.router.navigate(['clientes/add']);
   }
 }
