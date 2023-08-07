@@ -9,6 +9,7 @@ import { FacturaVentaComponent } from './factura-venta/factura-venta.component';
 import { FacturaVentaNuevoComponent } from './factura-venta/factura-venta-nuevo/factura-venta-nuevo.component';
 import { FormsModule } from '@angular/forms';
 import { ClientesComponent } from './clientes/clientes.component';
+import { ClientesAddComponent } from './clientes/clientes-add/clientes-add.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ClientesComponent } from './clientes/clientes.component';
     TopbarComponent,
     FacturaVentaComponent,
     FacturaVentaNuevoComponent,
-    ClientesComponent
+    ClientesComponent,
+    ClientesAddComponent
   ],
   imports: [
     BrowserModule,

@@ -1,38 +1,314 @@
-<div class="col-md-12">
-  <!-- First Row -->
+<div class="col-md-11">
+  <!-- Titulo -->
   <div class="row mt-3">
     <div class="col-md-12 d-flex align-items-center justify-content-center">
       <h2 class="title">Añadir nuevo Cliente/Proveedor</h2>
     </div>
   </div>
-  <div class="col-md-12">
-    <h4>Datos Generales</h4>
-    <br />
-    <label for="">Incluir datos principales del nuevo Cliente/Proveedor</label>
-    <div class="col-md-4">
-      <select
-        class="form-select form-select-sm"
-        aria-label=".form-select-sm example"
-      >
-        <option value="1">Cliente</option>
-        <option value="2">Proveedor</option>
-      </select>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-        <label for="">Tipo de Identifiacion</label>
-        <select
-          class="form-select form-select-sm"
-          aria-label=".form-select-sm example"
+  <!-- Datos Generales -->
+  <div class="accordion" id="datosGenerales">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
         >
-          <option value="1">NIT</option>
-          <option value="2">CC</option>
-        </select>
+          Datos Generales
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        data-bs-parent="#datosGenerales"
+      >
+        <div class="accordion-body">
+          <div class="col-md-12">
+            <h4>Datos Generales</h4>
+            <br />
+            <label for=""
+              >Incluir datos principales del nuevo Cliente/Proveedor</label
+            >
+            <div class="col-md-4">
+              <select
+                class="form-select form-select-sm"
+                aria-label=".form-select-sm example"
+              >
+                <option value="1">Cliente</option>
+                <option value="2">Proveedor</option>
+              </select>
+            </div>
+            <!-- Tipo y Numero de Identificacion -->
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <label for="">Tipo de Identifiacion</label>
+                <select
+                  class="form-select form-select-sm"
+                  aria-label=".form-select-sm example"
+                >
+                  <option value="1">NIT</option>
+                  <option value="2">CC</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="">Numero de Identificacion</label>
+                <br />
+                <input type="number" />
+              </div>
+            </div>
+            <!-- Razon Social / Nombre Completo -->
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <label for="">Razon Social / Nombre Completo</label>
+                <br />
+                <input type="text" />
+              </div>
+            </div>
+            <!-- Tipo de Persona y Responsabilidad Tributaria -->
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <label for="">Tipo de Persona</label>
+                <br />
+                <select name="" id="">
+                  <option value="1">Persona Natural</option>
+                  <option value="2">Persona Juridica</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <label for="">Responsabilidad tributaria</label>
+                <br />
+                <select name="" id="">
+                  <option value=" ">Responsable de IVA</option>
+                  <option value=" ">No Responsable de IVA</option>
+                  <option value=" ">Impuesto Nacional al consumo - INC</option>
+                  <option value=" ">No Responsable de INC</option>
+                  <option value=" ">Responsable de IVA e INC</option>
+                  <option value=" ">Regimen especial</option>
+                </select>
+              </div>
+            </div>
+            <!-- Municipio / Departamento -->
+            <div class="row mt-3">
+              <div class="col-md-12">
+                <label for="">Municipio / Departamento</label>
+                <br />
+                <select name="" id="">
+                  <!-- lista para rellenar eso  -->
+                  <option value=" ">Bogota</option>
+                </select>
+              </div>
+            </div>
+            <!-- Direccion y Codigo Postal -->
+            <div class="row mt-3">
+              <div class="col-md-8">
+                <label for="">Direccion</label>
+                <br />
+                <input type="text" />
+              </div>
+              <div class="col-md-4">
+                <label for="">Codigo Postal</label>
+                <br />
+                <input type="number" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-6">
-        <label for="">Numero de Identificacion</label>
-        <br />
-        <input type="text" />
+    </div>
+  </div>
+
+  <!-- Informacion de Contacto -->
+  <div class="accordion" id="infoContacto">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+          aria-expanded="true"
+          aria-controls="collapseTwo"
+        >
+          Informacion de Contacto
+        </button>
+      </h2>
+      <div
+        id="collapseTwo"
+        class="accordion-collapse collapse show"
+        data-bs-parent="#infoContacto"
+      >
+        <div class="accordion-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="">Correo Electronico</label>
+              <br />
+              <input type="text" />
+            </div>
+            <div class="col-md-6">
+              <label for="">Correo Electronico 2</label>
+              <br />
+              <input type="text" />
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <label for="">Telefono 1</label>
+              <br />
+              <input type="number" />
+            </div>
+            <div class="col-md-6">
+              <label for="">Telefono 2</label>
+              <br />
+              <input type="number" />
+            </div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <label for="">Celular</label>
+              <br />
+              <input type="number" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Informacion Comercial -->
+  <div class="accordion" id="infoComercial">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseThree"
+          aria-expanded="false"
+          aria-controls="collapseThree"
+        >
+          Informacion Comercial
+        </button>
+      </h2>
+      <div
+        id="collapseThree"
+        class="accordion-collapse collapse"
+        data-bs-parent="#infoComercial"
+      >
+        <div class="accordion-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="">Plazo de Pago</label>
+              <br />
+              <select name="" id=""></select>
+            </div>
+            <div class="col-md-6">
+              <label for="">Lista de Precios</label>
+              <br />
+              <select name="" id=""></select>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <label for="">Vendedor</label>
+              <select name="" id=""></select>
+            </div>
+          </div>
+
+          <div class="row mt-3">
+            <hr />
+            <h5>Obligaciones Tributarias</h5>
+            <div class="col-md-6">
+              <label for="">Regimen Simple de Tributacion</label>
+              <br />
+
+              <label for="">Gran Contribuyente</label>
+              <br />
+              <label for="">Autorretenedor</label>
+              <br />
+
+              <label for=""
+                >Agente de retencion en el impuesto sobre las ventas</label
+              >
+            </div>
+            <div class="col-md-6">
+              <div class="form-check form-switch">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                />
+              </div>
+              <div class="form-check form-switch">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                />
+              </div>
+              <div class="form-check form-switch">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                />
+              </div>
+              <div class="form-check form-switch">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  id="flexSwitchCheckDefault"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Configuracion para Contabilidad -->
+  <div class="accordion" id="configuracionContabilidad">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseFourth"
+          aria-expanded="false"
+          aria-controls="collapseFourth"
+        >
+          Configuracion para Contabilidad
+        </button>
+      </h2>
+      <div
+        id="collapseFourth"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionExample3"
+      >
+        <div class="accordion-body">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="">Cuenta por cobrar</label>
+              <br />
+              <select name="" id=""></select>
+            </div>
+            <div class="col-md-6">
+              <label for="">Cuenta por pagar</label>
+              <br />
+              <select name="" id=""></select>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
